@@ -73,3 +73,18 @@ td {
 .td-title {
   border: none;
 }
+
+.list-title {
+  margin-bottom: 0;
+}
+
+.custom0-list, .custom1-list, .custom2-list, .custom3-list, .custom4-list {
+  display: none;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 50px;
+}
+
+li {
+  line-height: 1.5;
+}

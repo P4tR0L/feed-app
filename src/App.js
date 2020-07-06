@@ -18,9 +18,112 @@ class App extends Component {
       customLabel2: '',
       customLabel3: '',
       customLabel4: '',
+      customLabelCounts0: '',
+      customLabelCounts1: '',
+      customLabelCounts2: '',
+      customLabelCounts3: '',
+      customLabelCounts4: ''
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  makeList() {
+
+    if (this.state.customLabel0) {
+      let list = this.state.customLabelCounts0;
+
+      let ul = document.querySelector('.custom0-list');
+      ul.style.display = 'block';
+      ul.innerHTML = '';
+      document.querySelector('.App-wrapper').appendChild(ul);
+
+      let li = document.createElement('li');
+      ul.appendChild(li);
+      li.innerHTML += '<strong>custom_label_0</strong>';
+
+      list.forEach(el => {
+        let li = document.createElement('li');
+        ul.appendChild(li);
+        li.innerHTML += `${el[0]}: <strong>${el[1]}</strong>, dostępnych: <strong>${el[2]}</strong>`;
+      });
+    }
+
+    if (this.state.customLabel1) {
+      let list = this.state.customLabelCounts1;
+
+      let ul = document.querySelector('.custom1-list');
+      ul.style.display = 'block';
+      ul.innerHTML = '';
+      document.querySelector('.App-wrapper').appendChild(ul);
+
+      let li = document.createElement('li');
+      ul.appendChild(li);
+      li.innerHTML += '<strong>custom_label_1</strong>';
+
+      list.forEach(el => {
+        let li = document.createElement('li');
+        ul.appendChild(li);
+        li.innerHTML += `${el[0]}: <strong>${el[1]}</strong>, dostępnych: <strong>${el[2]}</strong>`;
+      });
+    }
+
+    if (this.state.customLabel2) {
+      let list = this.state.customLabelCounts2;
+
+      let ul = document.querySelector('.custom2-list');
+      ul.style.display = 'block';
+      ul.innerHTML = '';
+      document.querySelector('.App-wrapper').appendChild(ul);
+
+      let li = document.createElement('li');
+      ul.appendChild(li);
+      li.innerHTML += '<strong>custom_label_2</strong>';
+
+      list.forEach(el => {
+        let li = document.createElement('li');
+        ul.appendChild(li);
+        li.innerHTML += `${el[0]}: <strong>${el[1]}</strong>, dostępnych: <strong>${el[2]}</strong>`;
+      });
+    }
+
+    if (this.state.customLabel3) {
+      let list = this.state.customLabelCounts3;
+
+      let ul = document.querySelector('.custom3-list');
+      ul.style.display = 'block';
+      ul.innerHTML = '';
+      document.querySelector('.App-wrapper').appendChild(ul);
+
+      let li = document.createElement('li');
+      ul.appendChild(li);
+      li.innerHTML += '<strong>custom_label_3</strong>';
+
+      list.forEach(el => {
+        let li = document.createElement('li');
+        ul.appendChild(li);
+        li.innerHTML += `${el[0]}: <strong>${el[1]}</strong>, dostępnych: <strong>${el[2]}</strong>`;
+      });
+    }
+
+    if (this.state.customLabel4) {
+      let list = this.state.customLabelCounts4;
+
+      let ul = document.querySelector('.custom4-list');
+      ul.style.display = 'block';
+      ul.innerHTML = '';
+      document.querySelector('.App-wrapper').appendChild(ul);
+
+      let li = document.createElement('li');
+      ul.appendChild(li);
+      li.innerHTML += '<strong>custom_label_4</strong>';
+
+      list.forEach(el => {
+        let li = document.createElement('li');
+        ul.appendChild(li);
+        li.innerHTML += `${el[0]}: <strong>${el[1]}</strong>, dostępnych: <strong>${el[2]}</strong>`;
+      });
+    }
   }
 
   handleChange(e) {
@@ -32,6 +135,10 @@ class App extends Component {
     fetch(`/api/feed?url=${encodeURIComponent(this.state.url)}`)
       .then(response => response.json())
       .then(state => this.setState(state));
+  }
+
+  componentDidUpdate() {
+    this.makeList();
   }
 
   render() {
@@ -86,7 +193,12 @@ class App extends Component {
                 </tr>
               </tbody>
             </table>
-          : null} 
+          : null}
+          {this.state.customLabel0 ? <ul className="custom0-list"></ul> : null}
+          {this.state.customLabel1 ? <ul className="custom1-list"></ul> : null}
+          {this.state.customLabel2 ? <ul className="custom2-list"></ul> : null}
+          {this.state.customLabel3 ? <ul className="custom3-list"></ul> : null}
+          {this.state.customLabel4 ? <ul className="custom4-list"></ul> : null}
         </div>
       </div>
     );

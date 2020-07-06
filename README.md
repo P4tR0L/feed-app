@@ -3,6 +3,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 This simple app checks XML feeds and shows information about them.
 It is based on React and NodeJS with ExpressJS.
 
+## Updates
+
+06.07.2020:
+- added new functionality
+- fixes
+
 ## Available Scripts
 
 In the project directory, you can run:
